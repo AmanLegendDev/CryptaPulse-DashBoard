@@ -2,7 +2,9 @@ import Link from "next/link";
 import LiveCrypto from "./LiveCrypto";
 
 export default async function CryptoDashboard() {
-  const res = await fetch("http://127.0.0.1:3000/api/crypto", { cache: "no-store" });
+const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || "https://crypta-pulse-dash-board.vercel.app"}/api/crypto`, {
+  cache: "no-store",
+});
   const data = await res.json();
 
   return (
