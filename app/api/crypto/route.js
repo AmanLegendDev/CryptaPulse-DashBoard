@@ -5,12 +5,23 @@ export async function GET() {
       { cache: "no-store" }
     );
 
-    if (!res.ok) throw new Error("Failed to fetch data from CoinGecko");
+    if (!res.ok) {
+      throw new Error(`CoinGecko API failed: ${res.status}`);
+    }
 
     const data = await res.json();
+
+    // Ensure valid array
+    if (!Array.isArray(data)) {
+      throw new Error("Unexpected API response format");
+    }
+
     return Response.json(data);
   } catch (error) {
-    console.error("Error fetching crypto data:", error);
-    return Response.json({ error: "Failed to fetch crypto data" }, { status: 500 });
+    console.error("❌ Error fetching crypto data:", error.message);
+    return Response.json(
+      { error: "Failed to fetch crypto data. Try again later." },
+      { status: 500 }
+    );
   }
 }
