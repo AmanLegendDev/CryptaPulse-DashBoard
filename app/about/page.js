@@ -1,27 +1,56 @@
+"use client"
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b-from-[#0a0a0a] to-[#0e1012] text-white px-6 py-16 flex flex-col items-center mt-10">
       
       {/* Header */}
-      <h1 className="text-5xl font-extrabold text-amber-500 mb-4 text-center">
+      <motion.h1
+      initial={{ opacity: 0, y: 30 }}
+       whileInView={{ opacity: 1, y: 0 }}
+       transition={{ duration: 0.6, ease: "easeOut" }}
+      className="text-5xl font-extrabold text-amber-500 mb-4 text-center">
         About <span className="text-emerald-400">CryptoPulse 💎</span> 💎
-      </h1>
+      </motion.h1>
 
-      <p className="text-gray-400 text-lg text-center max-w-3xl leading-relaxed">
+
+
+      <motion.p
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+
+      className="text-gray-400 text-lg text-center max-w-3xl leading-relaxed">
         Welcome to <span className="text-amber-400 font-semibold">CryptoPulse 💎</span> — a
         futuristic project built by passionate minds who believe technology can simplify 
         finance. Our mission? To make real-time crypto insights accessible, fast, and beautiful 
         for everyone.
-      </p>
+      </motion.p>
 
       {/* Section Divider */}
-      <div className="w-24 h-{2px} bg-amber-400 mt-8 mb-12"></div>
+      <motion.div
+      initial={{ width: 0 }}
+        whileInView={{ width: "6rem" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      
+      
+      className="w-24 h-{2px} bg-amber-400 mt-8 mb-12"></motion.div>
+
+
+
 
       {/* Mission Section */}
       <section className="max-w-5xl grid md:grid-cols-2 gap-12 items-center">
-        <div className="space-y-6">
+
+        <motion.div 
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        
+        className="space-y-6">
+
           <h2 className="text-3xl font-semibold text-emerald-400">⚡ Our Vision</h2>
           <p className="text-gray-400 leading-relaxed">
             We aim to merge the power of{" "}
@@ -36,9 +65,18 @@ export default function AboutPage() {
             why we built CryptoPulse 💎 to revalidate, update, and evolve without
             reloads or delays.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="flex justify-center">
+        <motion.div
+         initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          whileHover={{
+          scale: 1.04,
+          boxShadow: "0 0 30px rgba(0,255,200,0.25)",
+          }}
+
+        className="flex justify-center">
           <div className="relative group">
             <div className="absolute -inset-1 bg-gradient-to-r- from-amber-500 via-emerald-400 to-blue-500 rounded-lg blur opacity-30 group-hover:opacity-60 transition"></div>
             <img
@@ -47,11 +85,17 @@ export default function AboutPage() {
               className="relative rounded-lg w-[360px] md:w-[420px] border border-gray-700 shadow-lg"
             />
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Founder Section */}
-      <section className="mt-24 text-center max-w-3xl">
+      <motion.section
+       initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+
+
+      className="mt-24 text-center max-w-3xl">
         <h2 className="text-3xl font-semibold text-amber-500 mb-4">
           👑 The Mind Behind It
         </h2>
@@ -63,10 +107,14 @@ export default function AboutPage() {
         <p className="text-gray-500 text-sm italic">
           “I don’t chase trends. I build the next one.” – Aman Legends 🧠
         </p>
-      </section>
+      </motion.section>
 
       {/* CTA */}
-      <div className="mt-16 flex space-x-6">
+      <motion.div
+      whileHover={{ scale: 1.05 }}
+     whileTap={{ scale: 0.92 }}
+     
+      className="mt-16 flex space-x-6">
         <Link
           href="/crypto"
           className="bg-amber-500 text-black font-semibold px-6 py-3 rounded-lg hover:bg-amber-600 transition"
@@ -79,7 +127,7 @@ export default function AboutPage() {
         >
           ⬅️ Back to Home
         </Link>
-      </div>
+      </motion.div>
 
      
       

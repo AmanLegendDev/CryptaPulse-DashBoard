@@ -1,3 +1,10 @@
+
+
+// | Watchlist | Animations on delete | ⭐⭐        |
+// | Navbar    | Clean minimal reveal | ⭐⭐        |
+
+
+
 export async function GET() {
   try {
     // ✅ Use absolute URL for API (CoinGecko)
